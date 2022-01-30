@@ -1,95 +1,108 @@
-public class HW3 {
+import java.util.Arrays;
+
+public class hw3 {
     public static void main(String[] args) {
-        int[] arrayOrigin = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        changeArray(arrayOrigin);
-        System.out.println("");
+        sumArray();
+        System.out.println(); // 1.
+        arrayFill();
+        System.out.println(); // 2.
+        multipArray();
+        System.out.println(); //3.
+        sqareArray(1);
+        System.out.println(); //4.
+        System.out.println(Arrays.toString(returnArray(5, 3)));
 
-
-        int[] arrayLen100 = new int[100];
-        metArrayLen100(arrayLen100);
-        System.out.println("");
-
-
-        int[] multip = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        multiplication(multip);
-        System.out.println();
-
-        int n = 6;
-        int[][] array = new int[n][n];
-
-        createSquare(4);
 
 
     }
 
-
-    public static void changeArray(int[] arrayOrigin) {
-        System.out.print("Это изменённый массив : ");
-        for (int i = 0; i < arrayOrigin.length; i++) {
-            if (arrayOrigin[i] == 0) {
-                arrayOrigin[i] = 1;
+    //1.
+    public static void sumArray() {
+        int[] arrayForSumOrigin = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        System.out.print("Это изменённые значения массива - ");
+        for (int i = 0; i < arrayForSumOrigin.length; i++) {
+            if (arrayForSumOrigin[i] == 1) {
+                arrayForSumOrigin[i] = 0;
             } else {
-                arrayOrigin[i] = 0;
+                arrayForSumOrigin[i] = 1;
             }
-            System.out.print(arrayOrigin[i]);
+            System.out.print(arrayForSumOrigin[i]);
         }
     }
 
-    public static void metArrayLen100(int[] arrayLen100) {
-        System.out.println("Заполнение массива значениями : ");
-        for (int i = 0; i < arrayLen100.length; i++) {
-            arrayLen100[i] = (i) + 1;
-            System.out.print(" " + arrayLen100[i]);
+    //2.
+    public static void arrayFill() {
+        int[] arrayEmpty = new int[100];
+        System.out.print("Это Заполненный массив - ");
+        for (int i = 0; i < arrayEmpty.length; i++) {
+            arrayEmpty[i] = i + 1;
+            System.out.print(arrayEmpty[i] + " ");
         }
     }
 
-
-    public static void multiplication(int[] multi) {
-        System.out.print("После умножения : ");
-        for (int i = 0; i < multi.length; i++) {
-            if (multi[i] < 6) {
-                multi[i] *= 2;
+    //3.
+    public static void multipArray() {
+        int[] arrayForMultip = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        System.out.print("Это массив с умножением - ");
+        for (int i = 0; i < arrayForMultip.length; i++) {
+            if (arrayForMultip[i] < 6) {
+                arrayForMultip[i] = arrayForMultip[i] * 2;
             }
-            System.out.print(" " + multi[i]);
+            System.out.print(arrayForMultip[i] + " ");
         }
     }
 
-
-    public static void crossFill(int[][] array) {
-        for (int i = 0; i < array.length; i++) {
-            array[i][i] = 1;
-            array[i][i] = 1;
-            System.out.println(array[i][i]);
-
-        }
-    }
-
-    public static void createSquare(int n) {
-        int[][] sqrArray = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                sqrArray[i][j] = (i == j || j == (n - i - 1));
-                System.out.print("", sqrArray[i][j]);
+    //4.
+    public static void sqareArray(int args) {
+        int[][] arrayForSqare = new int[4][4];
+        System.out.println("Массив заполнен по диагонали :");
+        for (int i = 0; i < arrayForSqare.length; i++) {
+            for (int j = 0; j <= i; j++) {
+                arrayForSqare[i][j] = args;
+                System.out.print(arrayForSqare[i][j] + " ");
             }
             System.out.println();
         }
     }
-}
-  /*  int n = 4;
-    int[][] array = new int[n][n];
 
-for (int i = 0; i < n; i++) {
-        array[i][i] = 1;
-        array[i][n - i - 1] = 1;
-        }*/
+    //5.
+    public static int[] returnArray(int len, int initialValue) {
+        System.out.println("Возвращяется этот массив :");
+        int[] arrayForReturn = new int[len];
+        for (int i = 0; i < len; i++) {
+            arrayForReturn[i] = initialValue;
+        }
+        return arrayForReturn;
+    }
+
+    //6.
+
+   /* private static int findMin(int[] array) {
+        int min = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+
+    public static int findMax(int[] array) {
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+*/
+
+    }
 
 
 
 
-   // public static void main(String[] args) {
-
-   // }
-//}
 
 
 /*
